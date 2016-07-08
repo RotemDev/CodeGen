@@ -1,0 +1,6 @@
+{
+  "name": "Codegen",
+  "tagline": "CodeGen is a program which generates random codes",
+  "body": "# CodeGen\r\nCodeGen is a program which generates random codes for users.\r\n\r\nBuilt in Java\r\n[with Eclipse](http://www.eclipse.org \"Eclipse website\").\r\n\r\n# WARNING: This program is in heavy development progress and is far from a runnable build!\r\nThe program will be available when we decide that the code is runnable, and works\r\nwith no errors.",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
