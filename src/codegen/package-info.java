@@ -7,5 +7,6 @@
  * @since July 2016
  * @category Code Generators
  * @see codegen.res
+ * @see codegen.java
  */
 package codegen;
