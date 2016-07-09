@@ -133,11 +133,15 @@ public class User {
 	private void saveUsertable() {
 		File f = new File("codegen.usertable");
 		try {
-			FileOutputStream fos = new FileOutputStream(f);
-			ObjectOutputStream out = new ObjectOutputStream(fos);
-			out.writeObject(users);
-			out.close();
-		} catch (Exception e) {
+			PrintWriter p = new PrintWriter(f);
+			for (String[] strings : users) {
+				for (String string : strings) {
+					p.print(string + " ");
+				}
+				p.print("\n");
+			}
+			p.close();
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
@@ -152,12 +156,18 @@ public class User {
 		File f = new File("codegen.usertable");
 		String usertableR = "";
 		try {
-			FileInputStream fis = new FileInputStream(f);
-			ObjectInputStream in = new ObjectInputStream(fis);
-			users = (String[][]) in.readObject();
-			in.close();
-		} catch (Exception e) {
+			Scanner s = new Scanner(f);
+			while (s.hasNextLine()) {
 				usertableR += s.nextLine();
+			}
+			s.close();
+			String[] usertableU = usertableR.split("\n");
+			for (int i = 0; i < 10; i++) {
+				for (int j = 0; j < 2; j++) {
+					// To be continued...
+				}
+			}
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
