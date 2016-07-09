@@ -1,10 +1,9 @@
 package codegen.java;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 /**
  * Here are the user features.
@@ -148,14 +147,17 @@ public class User {
 	 * 
 	 * @see codegen.java.User.saveUsertable()
 	 */
+	@SuppressWarnings("unused")
 	public void loadUsertable() {
 		File f = new File("codegen.usertable");
+		String usertableR = "";
 		try {
 			FileInputStream fis = new FileInputStream(f);
 			ObjectInputStream in = new ObjectInputStream(fis);
 			users = (String[][]) in.readObject();
 			in.close();
 		} catch (Exception e) {
+				usertableR += s.nextLine();
 			e.printStackTrace();
 		}
 	}
