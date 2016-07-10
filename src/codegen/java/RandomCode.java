@@ -187,7 +187,7 @@ public class RandomCode {
 				break;
 			case 42:
 				c = 'G';
-				// The meaning of life, universe and everything
+				// The meaning of life, the universe and everything
 				break;
 			case 43:
 				c = 'H';
