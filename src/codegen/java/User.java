@@ -6,7 +6,8 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
- * Here are the user features.
+ * {@link User} is a class which handles the user features (adding, setting,
+ * removing, etc.).
  * 
  * @author RotemDev
  *
@@ -35,7 +36,7 @@ public class User {
 
 	public User() {
 		File check = new File("codegen.usertable");
-		
+
 		if (!(check.exists())) {
 			saveUsertable();
 		} else {
