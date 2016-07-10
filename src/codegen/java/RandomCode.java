@@ -50,7 +50,7 @@ public class RandomCode {
 	public String generateCode() {
 		String code = "";
 		char c = '\u0000';
-		for (int i = 0; i < length; i++) {
+		outer: for (int i = 0; i < length; i++) {
 			int rand = random.nextInt(62);
 			/*
 			 * This switch is to "choose" what character to put. The random
@@ -167,11 +167,128 @@ public class RandomCode {
 			case 35:
 				c = 'z';
 				break;
+			case 36:
+				c = 'A';
+				break;
+			case 37:
+				c = 'B';
+				break;
+			case 38:
+				c = 'C';
+				break;
+			case 39:
+				c = 'D';
+				break;
+			case 40:
+				c = 'E';
+				break;
+			case 41:
+				c = 'F';
+				break;
+			case 42:
+				c = 'G';
+				// The meaning of life, universe and everything
+				break;
+			case 43:
+				c = 'H';
+				break;
+			case 44:
+				c = 'I';
+				break;
+			case 45:
+				c = 'J';
+				break;
+			case 46:
+				c = 'K';
+				break;
+			case 47:
+				c = 'L';
+				break;
+			case 48:
+				c = 'M';
+				break;
+			case 49:
+				c = 'N';
+				break;
+			case 50:
+				c = 'O';
+				break;
+			case 51:
+				c = 'P';
+				break;
+			case 52:
+				c = 'Q';
+				break;
+			case 53:
+				c = 'R';
+				break;
+			case 54:
+				c = 'S';
+				break;
+			case 55:
+				c = 'T';
+				break;
+			case 56:
+				c = 'U';
+				break;
+			case 57:
+				c = 'V';
+				break;
+			case 58:
+				c = 'W';
+				break;
+			case 59:
+				c = 'X';
+				break;
+			case 60:
+				c = 'Y';
+				break;
+			case 61:
+				c = 'Z';
+				break;
 			default:
-				// TODO: Finish switch.
+				code = "There was an error in the random number generator.";
+				break outer;
 			}
 			code += c;
 		}
 		return code;
+	}
+
+	/**
+	 * @return the length
+	 */
+	public int getLength() {
+		return length;
+	}
+
+	/**
+	 * @param length
+	 *            the length to set
+	 */
+	public void setLength(int length) {
+		this.length = length;
+	}
+
+	/**
+	 * @return the seed
+	 */
+	public long getSeed() {
+		return seed;
+	}
+
+	/**
+	 * @param seed
+	 *            the seed to set
+	 */
+	public void setSeed(long seed) {
+		this.seed = seed;
+	}
+
+	/**
+	 * @return the randomiser
+	 */
+	public Random getRandom() {
+		return random;
 	}
 }
