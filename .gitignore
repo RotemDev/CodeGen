@@ -17,6 +17,10 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# CodeGen Files (tmp and usertable)
+*.tmp
+*.usertable
+
 # =========================
 # Operating System Files
 # =========================
