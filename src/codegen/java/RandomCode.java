@@ -41,6 +41,12 @@ public class RandomCode {
 		this.seed = seed;
 		this.random = new Random(seed);
 	}
+	
+	public RandomCode(int length) {
+		this.length = length;
+		this.seed = new Random().nextInt(10);
+		this.random = new Random(this.seed);
+	}
 
 	/**
 	 * Generate the code
