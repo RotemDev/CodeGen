@@ -53,6 +53,7 @@ public class CodeGenScreen {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("CodeGen NoLogin v1.0");
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(getLblGenerateCode());
 		frame.getContentPane().add(getLblLength());
@@ -63,6 +64,7 @@ public class CodeGenScreen {
 		frame.getContentPane().add(getLblCode());
 		frame.getContentPane().add(getBtnGenerateCode());
 	}
+
 	private JLabel getLblGenerateCode() {
 		if (lblGenerateCode == null) {
 			lblGenerateCode = new JLabel("Generate Code");
@@ -72,6 +74,7 @@ public class CodeGenScreen {
 		}
 		return lblGenerateCode;
 	}
+
 	private JLabel getLblLength() {
 		if (lblLength == null) {
 			lblLength = new JLabel("Length:");
@@ -79,6 +82,7 @@ public class CodeGenScreen {
 		}
 		return lblLength;
 	}
+
 	private JLabel getLblSeedaNumber() {
 		if (lblSeedaNumber == null) {
 			lblSeedaNumber = new JLabel("Seed (A number):");
@@ -86,6 +90,7 @@ public class CodeGenScreen {
 		}
 		return lblSeedaNumber;
 	}
+
 	private JTextField getTxtLength() {
 		if (txtLength == null) {
 			txtLength = new JTextField();
@@ -94,6 +99,7 @@ public class CodeGenScreen {
 		}
 		return txtLength;
 	}
+
 	private JTextField getTxtSeed() {
 		if (txtSeed == null) {
 			txtSeed = new JTextField();
@@ -102,6 +108,7 @@ public class CodeGenScreen {
 		}
 		return txtSeed;
 	}
+
 	private JTextField getTxtCode() {
 		if (txtCode == null) {
 			txtCode = new JTextField();
@@ -111,6 +118,7 @@ public class CodeGenScreen {
 		}
 		return txtCode;
 	}
+
 	private JLabel getLblCode() {
 		if (lblCode == null) {
 			lblCode = new JLabel("Code:");
@@ -118,22 +126,36 @@ public class CodeGenScreen {
 		}
 		return lblCode;
 	}
+
 	private JButton getBtnGenerateCode() {
 		if (btnGenerateCode == null) {
 			btnGenerateCode = new JButton("Generate Code!");
 			btnGenerateCode.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseReleased(MouseEvent arg0) {
-					try {
-						int length = Integer.parseInt(txtLength.getText());
-						long seed = Long.parseLong(txtSeed.getText());
-						RandomCode rc = new RandomCode(length, seed);
-						String code = rc.generateCode();
-						txtCode.setText(code);
-						txtCode.setEnabled(true);
-					} catch (Exception e) {
-						txtCode.setText("Put integers only in length and seed.");
-						return;
+					if (!(txtSeed.getText().isEmpty())) {
+						try {
+							int length = Integer.parseInt(txtLength.getText());
+							long seed = Long.parseLong(txtSeed.getText());
+							RandomCode rc = new RandomCode(length, seed);
+							String code = rc.generateCode();
+							txtCode.setText(code);
+							txtCode.setEnabled(true);
+						} catch (Exception e) {
+							txtCode.setText("Put integers only in length and seed.");
+							return;
+						}
+					} else {
+						try {
+							int length = Integer.parseInt(txtLength.getText());
+							RandomCode rc = new RandomCode(length);
+							String code = rc.generateCode();
+							txtCode.setText(code);
+							txtCode.setEnabled(true);
+						} catch (Exception e) {
+							txtCode.setText("Put integer only in length.");
+							return;
+						}
 					}
 				}
 			});
